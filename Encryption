@@ -1,0 +1,64 @@
+/*
+ * encryption.cpp
+ *
+ *  Created on: Jan 16, 2022
+ *      Author: Ricardo Escarcega 
+ * Citations: help from Professor Sarlo in class 
+ * Zoom call with Zachary Vollmer - worked on together 
+ *
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	// test
+	cout << "I am starting an encryption proj" << endl;
+
+	// ask user for a sentence to encrypt
+	string x;
+	int key;
+
+	cout << "Please enter a phrase to encrypt: ";
+	cin >> x;
+
+
+	// take the inout and turn it to lower case
+	// when UPPERCASE in ASCII add 32 to equal lower case
+	//loops through array
+	for(int i = 0; i < x.length(); i++)
+	{
+		if(x[i] > 64 && x[i] < 91)
+		{
+			x[i] = x[i] + 32;
+		}
+
+	}
+
+	cout << "Your phrase to encrypt: " << x << "\n";
+	// ask for an int
+	cout << "Please enter a integer key to encrypt this by: ";
+	// reads in key
+	cin >> key;
+
+	/// loops through the array 
+	for(int i = 0; i < x.length(); i++)
+	{
+		// when capital it turns to lower case 
+		if(x[i] > 96 && x[i] < 122)
+		{
+			x[i] = x[i] + key;
+		}
+		else if(x[i] = 123 - key)
+		{
+			x[i] = (x[i] + key) - 26;
+		}
+
+	}
+	cout << x << endl;
+
+
+	return 0;
+}
